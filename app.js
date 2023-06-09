@@ -54,7 +54,7 @@ function displayResults(results) {
     setTimeout(() => {
       resultsDiv.innerHTML = `
             <div class = "${results[idx].name} choice">
-                <img src ="/images/icon-${results[idx].name}.svg" alt = "${results[idx].name}">
+                <img src ="./images/icon-${results[idx].name}.svg" alt = "${results[idx].name}">
             </div>
         `;
     }, idx * 1000);
