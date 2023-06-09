@@ -22,3 +22,5 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Spock beats Rock
 
 Not sure what Rock, Paper, Scissors, Lizard, Spock is? [Check out this clip from The Big Bang Theory](https://www.youtube.com/watch?v=iSHPVCBsnLw).
+
+Play game [here](https://gab-riel404.github.io/rock-paper-scissors/)
