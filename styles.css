@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
+/* Color variables */
 :root {
     --light-text: #ffffff;
     --dark-text: hsl(229, 25%, 31%);
@@ -115,7 +116,7 @@ body {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    box-shadow: inset 0 0.5rem var(--shadow-light);
+    box-shadow: inset 0 0.3rem var(--shadow-light);
 }
 
 .choice img {
@@ -148,17 +149,17 @@ body {
 
 .choice.paper::before {
     background: linear-gradient(to bottom, var(--paper-grad-1), var(--paper-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--paper-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--paper-grad-2);
 }
 
 .choice.scissors::before {
     background: linear-gradient(to bottom, var(--scissors-grad-1), var(--scissors-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--scissors-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--scissors-grad-2);
 }
 
 .choice.rock::before {
     background: linear-gradient(to bottom, var(--rock-grad-1), var(--rock-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--rock-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--rock-grad-2);
 }
 
 .choice-btn[data-choice="paper"] {
@@ -200,24 +201,25 @@ body {
     z-index: -1;
 }
 
-.results.show-winner    {
+.results.show-winner {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "you-title . ai-title"
         "you-picked result-winner ai-picked";
-    
+
 }
 
-.winner .choice::after  {
+.winner .choice::after {
     box-shadow: 0 0 0 40px #293251, 0 0 0 80px #232c4b, 0 0 0 130px #1e2949;
     animation: winner 1s ease forwards;
 }
 
 @keyframes winner {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
@@ -262,6 +264,27 @@ body {
 
 .results_result:last-of-type {
     grid-area: ai-picked;
+}
+
+.btn-advanced {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    cursor: pointer;
+    background: none;
+    border: 2px solid var(--outline);
+    border-radius: 0.6rem;
+    color: var(--light-text);
+    padding: 0.6rem 2.5rem;
+    font-family: inherit;
+    text-transform: inherit;
+    letter-spacing: 0.1em;
+    font-size: 1.3rem;
+}
+
+.btn-advanced:hover {
+    background: #fff;
+    color: var(--dark-text);
 }
 
 .btn-rules {
@@ -334,11 +357,12 @@ body {
     pointer-events: initial;
 }
 
-.results_text{
+.results_text {
     color: #fff;
 }
+
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 20px;
@@ -356,4 +380,173 @@ body {
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 375px) {
+    body {
+        background: radial-gradient(at top, var(--bg-grad-1), var(--bg-grad-2) 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .container {
+        margin: 0 20px 80px;
+
+    }
+
+    .header {
+        padding: 1rem;
+        border-radius: 5px;
+        height: 110px;
+    }
+
+    .header .logo {
+        /* width: 50px;
+        height: 50px; */
+        transform: scale(0.6);
+        position: relative;
+        left: -30px;
+    }
+
+    .score {
+        padding: 10px;
+        border-radius: 5px;
+        height: auto;
+        width: 110px;
+    }
+
+    .score_title {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+
+    }
+
+    .score_number {
+        font-size: 3rem;
+
+    }
+
+    .footer {
+
+    }
+
+    .modal_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal_header {
+        width: auto;
+        display: block;
+
+    }
+
+    .modal_heading {
+        top: 6rem;
+        position: absolute;
+        left: 9.5rem;
+    }
+
+    .game::before {
+        top: 15%;
+        left: auto;
+        transform: scale(0.7);
+    }
+
+    .choice {
+        position: relative;
+        width: 6rem;
+        height: 6rem;
+        
+    }
+
+    .choice img {
+        transform: scale(0.8);
+    }
+
+    .choice-btn {
+        position: relative;
+        transform: scale(0.8);
+    }
+
+    .choice-btn[data-choice="paper"] {
+       left: -10px;
+    }
+
+    .choice-btn[data-choice="scissors"] {
+        right: -10px;
+    }
+
+    .choice-btn[data-choice="rock"] {
+        top: -70px;
+        
+    }
+
+    .results {
+        grid-template-areas:
+            "you-picked ai-picked"
+            "you-title ai-title";
+    }
+
+    .results_heading {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        padding: 2rem 0 4rem;
+    }
+
+    .results_result {
+        transform: scale(0.8);
+        min-width: 5rem;
+        min-height: 5rem;
+    }
+
+    .results.show-winner {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "you-picked  ai-picked"
+            "you-title  ai-title"
+            "result-winner result-winner";
+
+    }
+
+
+    .winner .choice::after {
+        box-shadow: 0 0 0 20px #293251, 0 0 0 40px #232c4b, 0 0 0 90px #1e2949;
+        animation: winner 1s ease forwards;
+        
+    }
+
+    .rules_image {
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    .btn-advanced {
+        transform: scale(0.9);
+        left: 0;
+    }
+
+    .btn-rules {
+        transform: scale(0.9);
+        right: 0;
+    }
+
+    .btn-close {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 2rem;
+        right: 10rem;
+    }
+
+    .show-footer {
+        opacity: 0;
+    }
 }

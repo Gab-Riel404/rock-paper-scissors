@@ -1,6 +1,7 @@
 const btnRules = document.querySelector(".btn-rules");
 const btnClose = document.querySelector(".btn-close");
 const modalRules = document.querySelector(".modal");
+const footerS = document.querySelector("footer");
 
 const CHOICES = [
   {
@@ -111,8 +112,10 @@ btnPlayAgain.addEventListener("click", () => {
 
 btnRules.addEventListener("click", () => {
   modalRules.classList.toggle("show-modal");
+  footerS.classList.toggle("show-footer");
 });
 
 btnClose.addEventListener("click", () => {
   modalRules.classList.toggle("show-modal");
+  footerS.classList.toggle("show-footer");
 });
