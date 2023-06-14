@@ -143,7 +143,6 @@ body {
     display: grid;
     place-items: center;
     box-shadow: inset 0 0.3rem var(--shadow-light);
-<<<<<<< HEAD
 }
 
 .game-advanced .choice {
@@ -155,8 +154,6 @@ body {
     display: grid;
     place-items: center;
     box-shadow: inset 0 0.3rem var(--shadow-light);
-=======
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
 }
 
 .choice img {
@@ -490,25 +487,17 @@ body {
     }
 
     .header .logo {
-<<<<<<< HEAD
-=======
-        /* width: 50px;
-        height: 50px; */
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
         transform: scale(0.6);
         position: relative;
         left: -30px;
     }
 
-<<<<<<< HEAD
     .header .logo-advanced {
         position: relative;
         left: 0;
         transform: scale(0.7);
     }
 
-=======
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
     .score {
         padding: 10px;
         border-radius: 5px;
@@ -527,13 +516,7 @@ body {
 
     }
 
-<<<<<<< HEAD
     .footer {}
-=======
-    .footer {
-
-    }
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
 
     .modal_container {
         position: fixed;
@@ -559,18 +542,13 @@ body {
         left: 9.5rem;
     }
 
-<<<<<<< HEAD
     .game::before,
     .game-advanced::before {
-=======
-    .game::before {
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
         top: 15%;
         left: auto;
         transform: scale(0.7);
     }
 
-<<<<<<< HEAD
 
     .choice,
     .game-advanced .choice {
@@ -578,35 +556,20 @@ body {
         width: 6rem;
         height: 6rem;
 
-=======
-    .choice {
-        position: relative;
-        width: 6rem;
-        height: 6rem;
-        
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
     }
 
     .choice img {
         transform: scale(0.8);
     }
 
-<<<<<<< HEAD
     .choice-btn,
     .game-advanced .choice-btn {
-=======
-    .choice-btn {
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
         position: relative;
         transform: scale(0.8);
     }
 
     .choice-btn[data-choice="paper"] {
-<<<<<<< HEAD
         left: -10px;
-=======
-       left: -10px;
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
     }
 
     .choice-btn[data-choice="scissors"] {
@@ -615,7 +578,6 @@ body {
 
     .choice-btn[data-choice="rock"] {
         top: -70px;
-<<<<<<< HEAD
 
     }
 
@@ -645,9 +607,6 @@ body {
     .game-advanced .choice-btn[data-choice="spock"] {
         left: -30px;
         top: -40px;
-=======
-        
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
     }
 
     .results {
@@ -681,11 +640,6 @@ body {
     .winner .choice::after {
         box-shadow: 0 0 0 20px #293251, 0 0 0 40px #232c4b, 0 0 0 90px #1e2949;
         animation: winner 1s ease forwards;
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
     }
 
     .rules_image {
