@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
+/* Color variables */
 :root {
-    --light-text: #ffffff;
+    --light-text: hsl(0, 0%, 100%);
     --dark-text: hsl(229, 25%, 31%);
     --score-text: hsl(229, 64%, 46%);
     --outline: hsl(217, 16%, 45%);
@@ -15,6 +16,8 @@
     --rock-grad-2: hsl(349, 70%, 56%);
     --lizard-grad-1: hsl(261, 73%, 60%);
     --lizard-grad-2: hsl(261, 72%, 63%);
+    --spock-grad-1: hsl(189, 59%, 53%);
+    --spock-grad-2: hsl(194, 58%, 42%);
     --shadow-light: #00000026;
     --shadow-med: #0000004d;
 }
@@ -89,6 +92,30 @@ body {
     padding-top: 4rem;
 }
 
+.game-advanced {
+    position: relative;
+    display: grid;
+    grid-template-columns: (repeat(3, 1fr));
+    grid-template-areas:
+        "scissors  scissors"
+        "spock paper"
+        "lizard rock";
+    place-items: center;
+    height: 30rem;
+    padding-top: 4rem;
+}
+
+.game-advanced::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 28%;
+    top: 35%;
+    background: url(./images/bg-pentagon.svg) no-repeat;
+    z-index: -1;
+}
+
 .game::before {
     content: "";
     position: absolute;
@@ -115,7 +142,18 @@ body {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    box-shadow: inset 0 0.5rem var(--shadow-light);
+    box-shadow: inset 0 0.3rem var(--shadow-light);
+}
+
+.game-advanced .choice {
+    position: relative;
+    width: 7rem;
+    height: 7rem;
+    background: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 0.3rem var(--shadow-light);
 }
 
 .choice img {
@@ -148,18 +186,29 @@ body {
 
 .choice.paper::before {
     background: linear-gradient(to bottom, var(--paper-grad-1), var(--paper-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--paper-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--paper-grad-2);
 }
 
 .choice.scissors::before {
     background: linear-gradient(to bottom, var(--scissors-grad-1), var(--scissors-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--scissors-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--scissors-grad-2);
 }
 
 .choice.rock::before {
     background: linear-gradient(to bottom, var(--rock-grad-1), var(--rock-grad-2));
-    box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--rock-grad-2);
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--rock-grad-2);
 }
+
+.choice.lizard::before {
+    background: linear-gradient(to bottom, var(--lizard-grad-1), var(--lizard-grad-2));
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--lizard-grad-2);
+}
+
+.choice.spock::before {
+    background: linear-gradient(to bottom, var(--spock-grad-1), var(--spock-grad-2));
+    box-shadow: 0 0.3rem var(--shadow-med), 0 0.3rem var(--spock-grad-2);
+}
+
 
 .choice-btn[data-choice="paper"] {
     grid-area: paper;
@@ -172,6 +221,38 @@ body {
 .choice-btn[data-choice="rock"] {
     grid-area: rock;
 }
+
+.game-advanced .choice-btn {
+    position: relative;
+}
+
+.game-advanced .choice-btn[data-choice="paper"] {
+    grid-area: paper;
+    right: 20px;
+}
+
+.game-advanced .choice-btn[data-choice="rock"] {
+    grid-area: rock;
+    left: -60px;
+    bottom: -70px;
+}
+
+.game-advanced .choice-btn[data-choice="scissors"] {
+    grid-area: scissors;
+    top: 20px;
+}
+
+.game-advanced .choice-btn[data-choice="lizard"] {
+    grid-area: lizard;
+    right: -80px;
+    bottom: -70px;
+}
+
+.game-advanced .choice-btn[data-choice="spock"] {
+    grid-area: spock;
+    left: 25px;
+}
+
 
 .results {
     display: grid;
@@ -200,24 +281,25 @@ body {
     z-index: -1;
 }
 
-.results.show-winner    {
+.results.show-winner {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "you-title . ai-title"
         "you-picked result-winner ai-picked";
-    
+
 }
 
-.winner .choice::after  {
+.winner .choice::after {
     box-shadow: 0 0 0 40px #293251, 0 0 0 80px #232c4b, 0 0 0 130px #1e2949;
     animation: winner 1s ease forwards;
 }
 
 @keyframes winner {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
@@ -264,6 +346,27 @@ body {
     grid-area: ai-picked;
 }
 
+.btn-advanced {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    cursor: pointer;
+    background: none;
+    border: 2px solid var(--outline);
+    border-radius: 0.6rem;
+    color: var(--light-text);
+    padding: 0.6rem 2.5rem;
+    font-family: inherit;
+    text-transform: inherit;
+    letter-spacing: 0.1em;
+    font-size: 1.3rem;
+}
+
+.btn-advanced:hover {
+    background: #fff;
+    color: var(--dark-text);
+}
+
 .btn-rules {
     position: absolute;
     bottom: 3rem;
@@ -303,6 +406,11 @@ body {
 .modal_container {
     background: #fff;
     border-radius: 0.5rem;
+    width: 500px;
+    height: 500px;
+    display: grid;
+    place-items: center;
+    padding-bottom: 2rem;
 }
 
 .modal_header {
@@ -334,11 +442,12 @@ body {
     pointer-events: initial;
 }
 
-.results_text{
+.results_text {
     color: #fff;
 }
+
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 20px;
@@ -356,4 +465,207 @@ body {
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 375px) {
+    body {
+        background: radial-gradient(at top, var(--bg-grad-1), var(--bg-grad-2) 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .container {
+        margin: 0 20px 80px;
+
+    }
+
+    .header {
+        padding: 1rem;
+        border-radius: 5px;
+        height: 110px;
+    }
+
+    .header .logo {
+        transform: scale(0.6);
+        position: relative;
+        left: -30px;
+    }
+
+    .header .logo-advanced {
+        position: relative;
+        left: 0;
+        transform: scale(0.7);
+    }
+
+    .score {
+        padding: 10px;
+        border-radius: 5px;
+        height: auto;
+        width: 110px;
+    }
+
+    .score_title {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+
+    }
+
+    .score_number {
+        font-size: 3rem;
+
+    }
+
+    .footer {}
+
+    .modal_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal_header {
+        width: auto;
+        display: block;
+
+    }
+
+    .modal_heading {
+        top: 6rem;
+        position: absolute;
+        left: 9.5rem;
+    }
+
+    .game::before,
+    .game-advanced::before {
+        top: 15%;
+        left: auto;
+        transform: scale(0.7);
+    }
+
+
+    .choice,
+    .game-advanced .choice {
+        position: relative;
+        width: 6rem;
+        height: 6rem;
+
+    }
+
+    .choice img {
+        transform: scale(0.8);
+    }
+
+    .choice-btn,
+    .game-advanced .choice-btn {
+        position: relative;
+        transform: scale(0.8);
+    }
+
+    .choice-btn[data-choice="paper"] {
+        left: -10px;
+    }
+
+    .choice-btn[data-choice="scissors"] {
+        right: -10px;
+    }
+
+    .choice-btn[data-choice="rock"] {
+        top: -70px;
+
+    }
+
+    .game-advanced .choice-btn {
+        position: relative;
+    }
+
+    .game-advanced .choice-btn[data-choice="paper"] {
+        left: 30px;
+        top: -40px;
+    }
+
+    .game-advanced .choice-btn[data-choice="rock"] {
+        left: -15px;
+        top: -50px;
+    }
+
+    .game-advanced .choice-btn[data-choice="scissors"] {
+        left: 0;
+    }
+
+    .game-advanced .choice-btn[data-choice="lizard"] {
+        left: 15px;
+        bottom: 50px;
+    }
+
+    .game-advanced .choice-btn[data-choice="spock"] {
+        left: -30px;
+        top: -40px;
+    }
+
+    .results {
+        grid-template-areas:
+            "you-picked ai-picked"
+            "you-title ai-title";
+    }
+
+    .results_heading {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        padding: 2rem 0 4rem;
+    }
+
+    .results_result {
+        transform: scale(0.8);
+        min-width: 5rem;
+        min-height: 5rem;
+    }
+
+    .results.show-winner {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "you-picked  ai-picked"
+            "you-title  ai-title"
+            "result-winner result-winner";
+
+    }
+
+
+    .winner .choice::after {
+        box-shadow: 0 0 0 20px #293251, 0 0 0 40px #232c4b, 0 0 0 90px #1e2949;
+        animation: winner 1s ease forwards;
+
+    }
+
+    .rules_image {
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    .btn-advanced {
+        transform: scale(0.9);
+        left: 0;
+    }
+
+    .btn-rules {
+        transform: scale(0.9);
+        right: 0;
+    }
+
+    .btn-close {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 2rem;
+        right: 10rem;
+    }
+
+    .show-footer {
+        opacity: 0;
+    }
 }

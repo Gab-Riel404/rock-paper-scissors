@@ -19,12 +19,13 @@
   <div class="container">
     <header class="header">
       <img src="./images/logo.svg" alt="logo" class="logo">
+      <img src="./images/logo-bonus.svg" alt="logo" class="logo-advanced hidden">
       <div class="score">
         <div class="score_title">
           Score
         </div>
         <div class="score_number">
-          12
+          0
         </div>
       </div>
     </header>
@@ -45,6 +46,33 @@
         </div>
       </button>
     </section>
+    <section class="game-advanced hidden">
+      <button class="choice-btn" data-choice="scissors">
+        <div class="scissors choice">
+          <img src="./images/icon-scissors.svg" alt="Scissors">
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="spock">
+        <div class="spock choice">
+          <img src="./images/icon-spock.svg" alt="Spock">
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="paper">
+        <div class="paper choice">
+          <img src="./images/icon-paper.svg" alt="Paper">
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="lizard">
+        <div class="lizard choice">
+          <img src="./images/icon-lizard.svg" alt="Lizard">
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="rock">
+        <div class="rock choice">
+          <img src="./images/icon-rock.svg" alt="Rock">
+        </div>
+      </button>
+    </section>
   </div>
   <section class="results hidden">
     <h2 class="results_heading">you picked</h2>
@@ -56,7 +84,7 @@
     </div>
     <div class="results_result"></div>
   </section>
-
+  <button class="btn-advanced">Advanced</button>
   <button class="btn-rules">Rules</button>
   <div class="modal">
     <div class="modal_container">
@@ -67,6 +95,7 @@
         </button>
       </header>
       <img src="./images/image-rules.svg" alt="Rules Image" class="rules_image">
+      <img src="./images/image-rules-bonus.svg" alt="Rules Image" class="rules_image_bonus hidden">
     </div>
   </div>
   <footer class="footer">
