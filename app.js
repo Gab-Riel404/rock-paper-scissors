@@ -3,6 +3,7 @@ const btnRules = document.querySelector(".btn-rules");
 const btnAdvanced = document.querySelector(".btn-advanced");
 const btnClose = document.querySelector(".btn-close");
 const modalRules = document.querySelector(".modal");
+<<<<<<< HEAD
 const choiceButtons = document.querySelectorAll(".choice-btn");
 const gameDiv = document.querySelector(".game");
 const resultsDiv = document.querySelector(".results");
@@ -21,6 +22,9 @@ const rulesImageBonus = document.querySelector(".rules_image_bonus");
 const scoreNum = document.querySelector(".score_number");
 let score = 0;
 let isAdvancedMode = false;
+=======
+const footerS = document.querySelector("footer");
+>>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
 
 const CHOICES = [
   {
@@ -247,6 +251,7 @@ btnAdvanced.addEventListener("click", () => {
   if (isAdvancedMode) {
     btnAdvanced.innerText = "Normal";
 
+<<<<<<< HEAD
     gameDiv.classList.add("hidden");
     gameDivAdvanced.classList.remove("hidden");
     resultsDiv.classList.remove("show-winner");
@@ -261,6 +266,11 @@ btnAdvanced.addEventListener("click", () => {
     resultsDiv.classList.add("hidden");
     resultWinner.classList.add("hidden");
   }
+=======
+btnRules.addEventListener("click", () => {
+  modalRules.classList.toggle("show-modal");
+  footerS.classList.toggle("show-footer");
+>>>>>>> 4e96a1040dec198de93f2dcb558073d116570277
 });
 
 btnClose.addEventListener("click", () => {
